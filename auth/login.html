@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign In — Enterprise ATS Platform</title>
+<meta name="description" content="Unified login portal for Candidate, Recruiter, and Client workspaces.">
+<meta name="theme-color" content="#0b0c10">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%230B0C10'/%3E%3Cpath d='M8 8h6.5a5.5 5.5 0 0 1 0 11H8V8Zm3 3v5h3.2a2.5 2.5 0 0 0 0-5H11Z' fill='url(%23lg)'/%3E%3Cpath d='M8 21h9' stroke='%237C5CFF' stroke-width='2' stroke-linecap='round'/%3E%3Cdefs%3E%3ClinearGradient id='lg' x1='8' y1='8' x2='20.5' y2='19' gradientUnits='userSpaceOnUse'%3E%3Cstop stop-color='%2334D399'/%3E%3Cstop offset='1' stop-color='%237C5CFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,680;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,-25..0&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../assets/css/tokens.css">
+<link rel="stylesheet" href="../assets/css/components.css">
+<style>
+  .login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--sp-5);
+    background: radial-gradient(circle at 10% 20%, rgba(124, 92, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(52, 211, 153, 0.08) 0%, transparent 40%),
+                var(--bg);
+    position: relative;
+  }
+  .login-shell {
+    width: 100%;
+    max-width: 1040px;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-deep);
+  }
+  @media (max-width: 860px) {
+    .login-shell { grid-template-columns: 1fr; max-width: 480px; }
+    .login-hero { display: none; }
+  }
+  .login-hero {
+    background: var(--surface-2);
+    border-right: 1px solid var(--border);
+    padding: var(--sp-8) var(--sp-7);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .login-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(124,92,255,0.06), rgba(255,107,74,0.04));
+    pointer-events: none;
+  }
+  .login-form-side {
+    padding: var(--sp-8) var(--sp-7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    text-decoration: none;
+  }
+  .brand-title {
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--text);
+  }
+  .brand-sub {
+    font-size: .72rem;
+    font-family: var(--font-mono);
+    color: var(--text-faint);
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+  .hero-graphic {
+    margin: var(--sp-6) 0;
+    position: relative;
+  }
+  .hero-graphic svg {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    filter: drop-shadow(0 20px 30px rgba(0,0,0,0.3));
+  }
+  .hero-quote {
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 1.3;
+    color: var(--text);
+  }
+  .hero-author {
+    font-size: .82rem;
+    color: var(--text-muted);
+    margin-top: var(--sp-2);
+  }
+  .theme-toggle-fixed {
+    position: absolute;
+    top: var(--sp-5);
+    right: var(--sp-5);
+  }
+  .demo-box {
+    margin-top: var(--sp-6);
+    padding-top: var(--sp-5);
+    border-top: 1px solid var(--border);
+  }
+  .demo-title {
+    font-size: .75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    margin-bottom: var(--sp-3);
+  }
+  .demo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-2);
+  }
+  .demo-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: var(--sp-3);
+    text-align: center;
+    cursor: pointer;
+    transition: all .2s var(--ease);
+  }
+  .demo-card:hover {
+    border-color: var(--accent-border);
+    transform: translateY(-2px);
+    background: var(--surface);
+  }
+  .demo-card-role {
+    font-size: .78rem;
+    font-weight: 700;
+    color: var(--text);
+  }
+  .demo-card-email {
+    font-size: .68rem;
+    color: var(--text-faint);
+    font-family: var(--font-mono);
+    margin-top: 2px;
+  }
+  .demo-badge {
+    font-size: .65rem;
+    padding: 1px 6px;
+    border-radius: var(--radius-pill);
+    margin-top: 4px;
+    display: inline-block;
+    font-weight: 700;
+  }
+  .demo-badge--candidate { background: rgba(255,107,74,.14); color: var(--coral); }
+  .demo-badge--recruiter { background: rgba(124,92,255,.14); color: var(--violet); }
+  .demo-badge--client    { background: rgba(52,211,153,.14); color: var(--emerald); }
+</style>
+</head>
+<body class="login-page">
+
+<div class="grain" aria-hidden="true"></div>
+
+<button class="icon-btn theme-toggle-fixed" id="theme-toggle" aria-label="Toggle theme">
+  <span class="material-symbols-rounded" aria-hidden="true">light_mode</span>
+</button>
+
+<main class="login-shell frame">
+  <!-- Left Hero Panel -->
+  <div class="login-hero">
+    <div>
+      <a href="#" class="brand-logo" aria-label="Edwin Design Studio ATS">
+        <svg class="logo-mark" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="9" fill="#14161C"/>
+          <path d="M8 8h6.5a5.5 5.5 0 0 1 0 11H8V8Zm3 3v5h3.2a2.5 2.5 0 0 0 0-5H11Z" fill="url(#lg-hero)"/>
+          <path d="M8 21h9" stroke="#7C5CFF" stroke-width="2" stroke-linecap="round"/>
+          <defs><linearGradient id="lg-hero" x1="8" y1="8" x2="20.5" y2="19" gradientUnits="userSpaceOnUse"><stop stop-color="#34D399"/><stop offset="1" stop-color="#7C5CFF"/></linearGradient></defs>
+        </svg>
+        <div>
+          <div class="brand-title">Edwin ATS</div>
+          <div class="brand-sub">Enterprise Talent Workspace</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="hero-graphic">
+      <svg viewBox="0 0 400 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="40" width="320" height="220" rx="16" fill="#14161C" stroke="#262A34" stroke-width="2"/>
+        <rect x="60" y="70" width="120" height="12" rx="4" fill="#34394A"/>
+        <rect x="60" y="95" width="200" height="8" rx="3" fill="#262A34"/>
+        <circle cx="100" cy="160" r="24" fill="#FF6B4A" fill-opacity="0.15" stroke="#FF6B4A" stroke-width="2"/>
+        <path d="M92 160h16M100 152v16" stroke="#FF6B4A" stroke-width="2" stroke-linecap="round"/>
+        <circle cx="200" cy="160" r="24" fill="#7C5CFF" fill-opacity="0.15" stroke="#7C5CFF" stroke-width="2"/>
+        <circle cx="200" cy="156" r="6" stroke="#7C5CFF" stroke-width="2"/>
+        <path d="M190 170c0-4 4-6 10-6s10 2 10 6" stroke="#7C5CFF" stroke-width="2"/>
+        <circle cx="300" cy="160" r="24" fill="#34D399" fill-opacity="0.15" stroke="#34D399" stroke-width="2"/>
+        <path d="M292 160l6 6 10-10" stroke="#34D399" stroke-width="2" stroke-linecap="round"/>
+        <path d="M124 160h52M224 160h52" stroke="#34394A" stroke-width="2" stroke-dasharray="4 4"/>
+      </svg>
+    </div>
+
+    <div>
+      <p class="hero-quote">“Unified hiring workflows for candidates, recruiters, and hiring clients.”</p>
+      <p class="hero-author">Edwin Design Studio · Enterprise Platform</p>
+    </div>
+  </div>
+
+  <!-- Right Form Side -->
+  <div class="login-form-side">
+    <p class="eyebrow" style="margin-bottom:var(--sp-2)">PORTAL ACCESS</p>
+    <h1 style="font-size:1.8rem;margin-bottom:var(--sp-2)">Welcome back</h1>
+    <p style="color:var(--text-muted);font-size:.88rem;margin-bottom:var(--sp-6)">Sign in to access your role-specific dashboard.</p>
+
+    <form id="login-form" novalidate class="form-section">
+      <div class="field">
+        <label for="login-email">Work or Personal Email</label>
+        <input type="email" id="login-email" placeholder="name@company.com" autocomplete="email" required>
+        <span class="field-error" id="login-email-err" role="alert"></span>
+      </div>
+
+      <div class="field">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <label for="login-password">Password</label>
+          <a href="forgot-password.html" id="forgot-pass-link" style="font-size:.78rem;color:var(--accent);font-weight:600">Forgot password?</a>
+        </div>
+        <input type="password" id="login-password" placeholder="••••••••" autocomplete="current-password" required>
+        <span class="field-error" id="login-pass-err" role="alert"></span>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:space-between;margin:var(--sp-2) 0">
+        <label class="toggle-switch" style="gap:8px">
+          <input type="checkbox" id="remember-me" checked>
+          <span class="toggle-track"></span>
+          <span style="font-size:.82rem;color:var(--text-muted)">Remember me for 30 days</span>
+        </label>
+      </div>
+
+      <button type="submit" class="btn btn--primary btn--block" id="login-btn" style="margin-top:var(--sp-3)">
+        <span class="btn-label">Sign In</span>
+        <span class="btn-spinner" aria-hidden="true"></span>
+      </button>
+    </form>
+
+    <!-- Demo One-Click Login Accounts -->
+    <div class="demo-box">
+      <div class="demo-title">⚡ Quick Demo Login (One-Click)</div>
+      <div class="demo-grid">
+        <div class="demo-card" data-demo="candidate@demo.com">
+          <div class="demo-card-role">Candidate</div>
+          <div class="demo-card-email">Priya Menon</div>
+          <span class="demo-badge demo-badge--candidate">Candidate</span>
+        </div>
+        <div class="demo-card" data-demo="recruiter@demo.com">
+          <div class="demo-card-role">Recruiter</div>
+          <div class="demo-card-email">Riya Kapoor</div>
+          <span class="demo-badge demo-badge--recruiter">Recruiter</span>
+        </div>
+        <div class="demo-card" data-demo="client@demo.com">
+          <div class="demo-card-role">Client</div>
+          <div class="demo-card-email">Arjun Patel</div>
+          <span class="demo-badge demo-badge--client">Client</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<script src="../assets/js/auth.js"></script>
+<script src="../assets/js/shared.js"></script>
+<script>
+(function() {
+  'use strict';
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const isLogout = urlParams.get('reason') === 'logout';
+
+  if (isLogout) {
+    ATS.Auth.clearSession();
+    setTimeout(() => ATS.Toast.show('You have been signed out safely.', 'info'), 300);
+  } else {
+    // Only auto-redirect if NOT explicitly logging out
+    const session = ATS.Auth.getSession();
+    if (session && session.role) {
+      const dest = ATS.Auth.rootUrl(`${session.role}/dashboard.html`);
+      window.location.href = dest;
+      return;
+    }
+  }
+
+  if (urlParams.get('reason') === 'auth') {
+    setTimeout(() => ATS.Toast.show('Please sign in to access that page.', 'warn'), 300);
+  }
+
+  const form = document.getElementById('login-form');
+  const emailInput = document.getElementById('login-email');
+  const passInput = document.getElementById('login-password');
+  const emailErr = document.getElementById('login-email-err');
+  const passErr = document.getElementById('login-pass-err');
+  const loginBtn = document.getElementById('login-btn');
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    emailErr.textContent = '';
+    passErr.textContent = '';
+
+    const email = emailInput.value.trim();
+    const pass = passInput.value;
+    let valid = true;
+
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      emailErr.textContent = 'Please enter a valid email address.';
+      emailInput.closest('.field').classList.add('has-error');
+      valid = false;
+    } else {
+      emailInput.closest('.field').classList.remove('has-error');
+    }
+
+    if (!pass) {
+      passErr.textContent = 'Please enter your password.';
+      passInput.closest('.field').classList.add('has-error');
+      valid = false;
+    } else {
+      passInput.closest('.field').classList.remove('has-error');
+    }
+
+    if (!valid) return;
+
+    loginBtn.classList.add('is-loading');
+
+    setTimeout(() => {
+      const res = ATS.Auth.login(email, pass);
+      loginBtn.classList.remove('is-loading');
+
+      if (!res.ok) {
+        passErr.textContent = res.error;
+        passInput.closest('.field').classList.add('has-error');
+        ATS.Toast.show(res.error, 'error');
+      } else {
+        ATS.Toast.show(`Welcome back, ${res.session.name}! Redirecting...`, 'success');
+        setTimeout(() => {
+          window.location.href = ATS.Auth.rootUrl(res.portal);
+        }, 400);
+      }
+    }, 600);
+  });
+
+  const demoAccounts = ATS.Auth.getDemoAccounts();
+  document.querySelectorAll('[data-demo]').forEach(card => {
+    card.addEventListener('click', () => {
+      const email = card.getAttribute('data-demo');
+      const acc = demoAccounts[email];
+      if (acc) {
+        emailInput.value = email;
+        passInput.value = acc.password;
+        ATS.Toast.show(`Populated credentials for ${acc.name} (${acc.role}). Signing in...`, 'info');
+        form.dispatchEvent(new Event('submit'));
+      }
+    });
+  });
+
+  ATS.FrameCorners.inject();
+  ATS.Theme.init();
+
+})();
+</script>
+</body>
+</html>

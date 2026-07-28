@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enterprise ATS Platform</title>
+<script src="assets/js/auth.js"></script>
+<script>
+(function() {
+  'use strict';
+  const session = ATS.Auth.getSession();
+  if (session && session.role) {
+    const portals = {
+      candidate: 'candidate/dashboard.html',
+      recruiter: 'recruiter/dashboard.html',
+      client:    'client/dashboard.html'
+    };
+    if (portals[session.role]) {
+      window.location.replace(portals[session.role]);
+      return;
+    }
+  }
+  window.location.replace('auth/login.html');
+})();
+</script>
+</head>
+<body style="background:#0B0C10;color:#F3F4F6;font-family:sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;margin:0;">
+  <div style="text-align:center">
+    <p>Redirecting to Enterprise ATS...</p>
+    <a href="auth/login.html" style="color:#7C5CFF">Click here if not redirected automatically.</a>
+  </div>
+</body>
+</html>
