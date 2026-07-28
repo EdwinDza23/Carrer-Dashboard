@@ -1,155 +1,195 @@
 <!DOCTYPE html>
 <html lang="en" data-portal="client">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hiring Requests — Client Portal</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,680;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,-25..0&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/tokens.css">
-<link rel="stylesheet" href="../assets/css/components.css">
-<link rel="stylesheet" href="../assets/css/portal.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hiring Requests — Client Portal</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,680;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,-25..0&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/portal.css">
 </head>
+
 <body class="portal-body">
-<div class="grain" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
-<div class="portal-shell">
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <a href="dashboard.html" class="sidebar-logo">
-      <svg class="logo-mark" viewBox="0 0 32 32" fill="none">
-        <rect width="32" height="32" rx="9" fill="#14161C"/>
-        <path d="M8 8h6.5a5.5 5.5 0 0 1 0 11H8V8Zm3 3v5h3.2a2.5 2.5 0 0 0 0-5H11Z" fill="url(#lg-cli)"/>
-        <path d="M8 21h9" stroke="#34D399" stroke-width="2" stroke-linecap="round"/>
-        <defs><linearGradient id="lg-cli" x1="8" y1="8" x2="20.5" y2="19" gradientUnits="userSpaceOnUse"><stop stop-color="#34D399"/><stop offset="1" stop-color="#7C5CFF"/></linearGradient></defs>
-      </svg>
-      <div class="logo-text-wrap"><div class="logo-product">Edwin ATS</div><div class="logo-portal">Client Portal</div></div>
-    </a>
-    <nav class="sidebar-nav">
-      <div class="nav-section-label">Overview</div>
-      <a href="dashboard.html" class="nav-item"><span class="material-symbols-rounded">dashboard</span>Dashboard</a>
-      <a href="hiring-requests.html" class="nav-item is-active"><span class="material-symbols-rounded">assignment</span>Hiring Requests<span class="nav-count">4</span></a>
-      <a href="candidates.html" class="nav-item"><span class="material-symbols-rounded">groups</span>Candidate Shortlists<span class="nav-count nav-count--new">5</span></a>
-      <div class="nav-section-label">Management</div>
-      <a href="interviews.html" class="nav-item"><span class="material-symbols-rounded">rate_review</span>Interview Feedback<span class="nav-count nav-count--urgent">2</span></a>
-      <a href="approvals.html" class="nav-item"><span class="material-symbols-rounded">approval</span>Approvals<span class="nav-count nav-count--urgent">3</span></a>
-      <a href="reports.html" class="nav-item"><span class="material-symbols-rounded">bar_chart</span>Reports & Analytics</a>
-      <div class="nav-section-label">Organization</div>
-      <a href="settings.html" class="nav-item"><span class="material-symbols-rounded">settings</span>Settings</a>
-    </nav>
-    <div class="sidebar-footer">
-      <div class="sidebar-user" id="user-menu-btn">
-        <div class="avatar avatar--sm" data-session="avatar">AP</div>
-        <div class="sidebar-user-info"><div class="sidebar-user-name" data-session="name">Arjun Patel</div><div class="sidebar-user-role" data-session="title">Hiring Lead · Acme Corp</div></div>
-        <span class="material-symbols-rounded" style="color:var(--text-faint)">unfold_more</span>
+  <div class="portal-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <a href="dashboard.html" class="sidebar-logo">
+        <svg class="logo-mark" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="9" fill="#14161C" />
+          <path d="M8 8h6.5a5.5 5.5 0 0 1 0 11H8V8Zm3 3v5h3.2a2.5 2.5 0 0 0 0-5H11Z" fill="url(#lg-cli)" />
+          <path d="M8 21h9" stroke="#34D399" stroke-width="2" stroke-linecap="round" />
+          <defs>
+            <linearGradient id="lg-cli" x1="8" y1="8" x2="20.5" y2="19" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#34D399" />
+              <stop offset="1" stop-color="#7C5CFF" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="logo-text-wrap">
+          <div class="logo-product">Pixel ATS</div>
+          <div class="logo-portal">Client Portal</div>
+        </div>
+      </a>
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">Overview</div>
+        <a href="dashboard.html" class="nav-item"><span class="material-symbols-rounded">dashboard</span>Dashboard</a>
+        <a href="hiring-requests.html" class="nav-item is-active"><span
+            class="material-symbols-rounded">assignment</span>Hiring Requests<span class="nav-count">4</span></a>
+        <a href="candidates.html" class="nav-item"><span class="material-symbols-rounded">groups</span>Candidate
+          Shortlists<span class="nav-count nav-count--new">5</span></a>
+        <div class="nav-section-label">Management</div>
+        <a href="interviews.html" class="nav-item"><span class="material-symbols-rounded">rate_review</span>Interview
+          Feedback<span class="nav-count nav-count--urgent">2</span></a>
+        <a href="approvals.html" class="nav-item"><span class="material-symbols-rounded">approval</span>Approvals<span
+            class="nav-count nav-count--urgent">3</span></a>
+        <a href="reports.html" class="nav-item"><span class="material-symbols-rounded">bar_chart</span>Reports &
+          Analytics</a>
+        <div class="nav-section-label">Organization</div>
+        <a href="settings.html" class="nav-item"><span class="material-symbols-rounded">settings</span>Settings</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user" id="user-menu-btn">
+          <div class="avatar avatar--sm" data-session="avatar">AP</div>
+          <div class="sidebar-user-info">
+            <div class="sidebar-user-name" data-session="name">Arjun Patel</div>
+            <div class="sidebar-user-role" data-session="title">Hiring Lead · Acme Corp</div>
+          </div>
+          <span class="material-symbols-rounded" style="color:var(--text-faint)">unfold_more</span>
+        </div>
+        <div class="user-menu" id="user-menu">
+          <a href="settings.html" class="user-menu-item"><span
+              class="material-symbols-rounded">settings</span>Settings</a>
+          <hr class="user-menu-divider">
+          <button class="user-menu-item user-menu-item--danger" id="logout-btn"><span
+              class="material-symbols-rounded">logout</span>Sign Out</button>
+        </div>
       </div>
-      <div class="user-menu" id="user-menu">
-        <a href="settings.html" class="user-menu-item"><span class="material-symbols-rounded">settings</span>Settings</a>
-        <hr class="user-menu-divider">
-        <button class="user-menu-item user-menu-item--danger" id="logout-btn"><span class="material-symbols-rounded">logout</span>Sign Out</button>
-      </div>
-    </div>
-  </aside>
+    </aside>
 
-  <!-- Main -->
-  <div class="portal-main">
-    <header class="topbar">
-      <div style="display:flex;align-items:center;gap:var(--sp-3)">
-        <button class="sidebar-toggle-btn" id="sidebar-toggle"><span class="material-symbols-rounded">menu</span></button>
-        <div><div class="topbar-eyebrow">HIRING REQUISITIONS</div><h1 class="topbar-title">Hiring Requests</h1></div>
-      </div>
-      <div class="topbar-actions">
-        <button class="icon-btn" id="theme-toggle"><span class="material-symbols-rounded">light_mode</span></button>
-        <button class="btn btn--primary btn--sm" id="new-req-btn"><span class="material-symbols-rounded">add</span> Raise New Request</button>
-      </div>
-    </header>
-
-    <div class="page-content">
-      <div class="page-toolbar">
-        <div class="toolbar-left">
-          <div class="chip-row">
-            <button class="chip is-active" data-req-filter="all">All Requests (6)</button>
-            <button class="chip" data-req-filter="active">Active (3)</button>
-            <button class="chip" data-req-filter="pending">Pending (1)</button>
-            <button class="chip" data-req-filter="draft">Draft (1)</button>
+    <!-- Main -->
+    <div class="portal-main">
+      <header class="topbar">
+        <div style="display:flex;align-items:center;gap:var(--sp-3)">
+          <button class="sidebar-toggle-btn" id="sidebar-toggle"><span
+              class="material-symbols-rounded">menu</span></button>
+          <div>
+            <div class="topbar-eyebrow">HIRING REQUISITIONS</div>
+            <h1 class="topbar-title">Hiring Requests</h1>
           </div>
         </div>
-        <div class="toolbar-right">
-          <div class="search-wrap">
-            <span class="material-symbols-rounded">search</span>
-            <input type="search" id="req-search" placeholder="Search requests…">
+        <div class="topbar-actions">
+          <button class="icon-btn" id="theme-toggle"><span class="material-symbols-rounded">light_mode</span></button>
+          <button class="btn btn--primary btn--sm" id="new-req-btn"><span class="material-symbols-rounded">add</span>
+            Raise New Request</button>
+        </div>
+      </header>
+
+      <div class="page-content">
+        <div class="page-toolbar">
+          <div class="toolbar-left">
+            <div class="chip-row">
+              <button class="chip is-active" data-req-filter="all">All Requests (6)</button>
+              <button class="chip" data-req-filter="active">Active (3)</button>
+              <button class="chip" data-req-filter="pending">Pending (1)</button>
+              <button class="chip" data-req-filter="draft">Draft (1)</button>
+            </div>
+          </div>
+          <div class="toolbar-right">
+            <div class="search-wrap">
+              <span class="material-symbols-rounded">search</span>
+              <input type="search" id="req-search" placeholder="Search requests…">
+            </div>
           </div>
         </div>
-      </div>
 
-      <div id="requests-list" style="display:flex;flex-direction:column;gap:var(--sp-4)" data-reveal></div>
+        <div id="requests-list" style="display:flex;flex-direction:column;gap:var(--sp-4)" data-reveal></div>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- New Request Modal -->
-<div class="modal-overlay" id="modal-new-req" role="dialog" aria-modal="true" aria-hidden="true">
-  <div class="modal-panel modal-panel--wide frame">
-    <button class="modal-close" onclick="ATS.Modal.close('modal-new-req')"><span class="material-symbols-rounded">close</span></button>
-    <div class="modal-eyebrow">NEW HIRING REQUISITION</div>
-    <h3 class="modal-title">Raise a Hiring Request</h3>
-    <p class="modal-note">Your assigned recruiter team at Edwin Design Studio will review within 1 business day.</p>
-    <form id="new-req-form" class="form-section">
-      <div class="form-row">
-        <div class="field"><label>Job Title *</label><input type="text" placeholder="e.g. Senior Product Designer" required></div>
-        <div class="field"><label>Department *</label><input type="text" placeholder="e.g. Product Design" required></div>
-      </div>
-      <div class="form-row">
-        <div class="field">
-          <label>Employment Type</label>
-          <select><option>Full-time</option><option>Contract</option><option>Part-time</option></select>
+  <!-- New Request Modal -->
+  <div class="modal-overlay" id="modal-new-req" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-panel modal-panel--wide frame">
+      <button class="modal-close" onclick="ATS.Modal.close('modal-new-req')"><span
+          class="material-symbols-rounded">close</span></button>
+      <div class="modal-eyebrow">NEW HIRING REQUISITION</div>
+      <h3 class="modal-title">Raise a Hiring Request</h3>
+      <p class="modal-note">Your assigned recruiter team at Edwin Design Studio will review within 1 business day.</p>
+      <form id="new-req-form" class="form-section">
+        <div class="form-row">
+          <div class="field"><label>Job Title *</label><input type="text" placeholder="e.g. Senior Product Designer"
+              required></div>
+          <div class="field"><label>Department *</label><input type="text" placeholder="e.g. Product Design" required>
+          </div>
         </div>
-        <div class="field">
-          <label>Urgency Level</label>
-          <select><option>Standard (4-6 weeks)</option><option>Priority (2-3 weeks)</option><option>Critical (ASAP)</option></select>
+        <div class="form-row">
+          <div class="field">
+            <label>Employment Type</label>
+            <select>
+              <option>Full-time</option>
+              <option>Contract</option>
+              <option>Part-time</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Urgency Level</label>
+            <select>
+              <option>Standard (4-6 weeks)</option>
+              <option>Priority (2-3 weeks)</option>
+              <option>Critical (ASAP)</option>
+            </select>
+          </div>
         </div>
-      </div>
-      <div class="form-row">
-        <div class="field"><label>Location</label><input type="text" placeholder="e.g. Bengaluru / Hybrid"></div>
-        <div class="field"><label>Salary Range (₹ LPA)</label><input type="text" placeholder="e.g. 25 - 35"></div>
-      </div>
-      <div class="field"><label>Key Requirements / Skills</label><textarea rows="2" placeholder="List required experience, tools, or domain knowledge…"></textarea></div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn--secondary" onclick="ATS.Modal.close('modal-new-req')">Cancel</button>
-        <button type="submit" class="btn btn--primary">Submit Request</button>
-      </div>
-    </form>
+        <div class="form-row">
+          <div class="field"><label>Location</label><input type="text" placeholder="e.g. Bengaluru / Hybrid"></div>
+          <div class="field"><label>Salary Range (₹ LPA)</label><input type="text" placeholder="e.g. 25 - 35"></div>
+        </div>
+        <div class="field"><label>Key Requirements / Skills</label><textarea rows="2"
+            placeholder="List required experience, tools, or domain knowledge…"></textarea></div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn--secondary" onclick="ATS.Modal.close('modal-new-req')">Cancel</button>
+          <button type="submit" class="btn btn--primary">Submit Request</button>
+        </div>
+      </form>
+    </div>
   </div>
-</div>
 
-<script src="../assets/js/auth.js"></script>
-<script src="../assets/js/shared.js"></script>
-<script src="../assets/js/data.js"></script>
-<script>
-(function() {
-  'use strict';
-  const data = ATS.Data.client;
-  const session = ATS.Portal.init({ role: 'client', notifs: data.notifications });
-  if (!session) return;
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/shared.js"></script>
+  <script src="../assets/js/data.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      const data = ATS.Data.client;
+      const session = ATS.Portal.init({ role: 'client', notifs: data.notifications });
+      if (!session) return;
 
-  let currentFilter = 'all';
-  let searchQuery = '';
+      let currentFilter = 'all';
+      let searchQuery = '';
 
-  function render() {
-    const list = document.getElementById('requests-list');
-    const filtered = data.requests.filter(r => {
-      const matchF = currentFilter === 'all' ? true : r.status === currentFilter;
-      const matchS = r.title.toLowerCase().includes(searchQuery) || r.dept.toLowerCase().includes(searchQuery);
-      return matchF && matchS;
-    });
+      function render() {
+        const list = document.getElementById('requests-list');
+        const filtered = data.requests.filter(r => {
+          const matchF = currentFilter === 'all' ? true : r.status === currentFilter;
+          const matchS = r.title.toLowerCase().includes(searchQuery) || r.dept.toLowerCase().includes(searchQuery);
+          return matchF && matchS;
+        });
 
-    if (!filtered.length) {
-      list.innerHTML = ATS.Utils.emptyState({ icon: 'assignment_late', title: 'No requests match your filter' });
-      return;
-    }
+        if (!filtered.length) {
+          list.innerHTML = ATS.Utils.emptyState({ icon: 'assignment_late', title: 'No requests match your filter' });
+          return;
+        }
 
-    list.innerHTML = filtered.map(r => `
+        list.innerHTML = filtered.map(r => `
       <div class="request-card frame">
         <div>
           <div style="display:flex;align-items:center;gap:var(--sp-2)">
@@ -181,21 +221,22 @@
       </div>
     `).join('');
 
-    ATS.FrameCorners.inject(list);
-  }
+        ATS.FrameCorners.inject(list);
+      }
 
-  ATS.ChipFilter.init('data-req-filter', val => { currentFilter = val; render(); });
-  document.getElementById('req-search').addEventListener('input', e => { searchQuery = e.target.value.toLowerCase(); render(); });
-  document.getElementById('new-req-btn').addEventListener('click', () => ATS.Modal.open('modal-new-req'));
+      ATS.ChipFilter.init('data-req-filter', val => { currentFilter = val; render(); });
+      document.getElementById('req-search').addEventListener('input', e => { searchQuery = e.target.value.toLowerCase(); render(); });
+      document.getElementById('new-req-btn').addEventListener('click', () => ATS.Modal.open('modal-new-req'));
 
-  document.getElementById('new-req-form').addEventListener('submit', e => {
-    e.preventDefault();
-    ATS.Modal.close('modal-new-req');
-    ATS.Toast.show('Hiring request submitted! Your recruiter will review it within 1 business day.', 'success');
-  });
+      document.getElementById('new-req-form').addEventListener('submit', e => {
+        e.preventDefault();
+        ATS.Modal.close('modal-new-req');
+        ATS.Toast.show('Hiring request submitted! Your recruiter will review it within 1 business day.', 'success');
+      });
 
-  render();
-})();
-</script>
+      render();
+    })();
+  </script>
 </body>
+
 </html>

@@ -1,5 +1,5 @@
 /* ================================================================
-   SHARED.JS — Edwin ATS Platform
+   SHARED.JS — Pixel ATS Platform
    Toast · Frame corners · Reveal · Modal · Sidebar · Theme
    Notifications · Portal init · Common utilities
    ================================================================ */
@@ -31,9 +31,9 @@
       if (!this.region) this.init();
       const iconMap = {
         success: 'check_circle',
-        error:   'error',
-        warn:    'warning',
-        info:    'info',
+        error: 'error',
+        warn: 'warning',
+        info: 'info',
       };
       const toast = document.createElement('div');
       toast.className = `toast toast--${type}`;
@@ -160,7 +160,7 @@
     backdrop: null,
 
     init() {
-      this.el       = document.querySelector('.sidebar');
+      this.el = document.querySelector('.sidebar');
       this.backdrop = document.getElementById('sidebar-backdrop');
       const toggleBtn = document.getElementById('sidebar-toggle');
 
@@ -203,11 +203,11 @@
      ================================================================ */
   const UserMenu = {
     menu: null,
-    btn:  null,
+    btn: null,
 
     init() {
       this.menu = document.getElementById('user-menu');
-      this.btn  = document.getElementById('user-menu-btn');
+      this.btn = document.getElementById('user-menu-btn');
       if (!this.menu || !this.btn) return;
 
       this.btn.addEventListener('click', e => {
@@ -259,14 +259,14 @@
      NOTIFICATIONS DROPDOWN
      ================================================================ */
   const Notifications = {
-    btn:  null,
+    btn: null,
     drop: null,
-    dot:  null,
+    dot: null,
 
     init(items = []) {
-      this.btn  = document.getElementById('notif-btn');
+      this.btn = document.getElementById('notif-btn');
       this.drop = document.getElementById('notif-drop');
-      this.dot  = document.getElementById('notif-dot');
+      this.dot = document.getElementById('notif-dot');
       if (!this.btn || !this.drop) return;
 
       this.render(items);
@@ -342,7 +342,7 @@
       if (toggleBtn) {
         toggleBtn.addEventListener('click', () => {
           const current = document.documentElement.getAttribute('data-theme') || 'dark';
-          const next    = current === 'dark' ? 'light' : 'dark';
+          const next = current === 'dark' ? 'light' : 'dark';
           this.apply(next);
           localStorage.setItem(this.KEY, next);
         });

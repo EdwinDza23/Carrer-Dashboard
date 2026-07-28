@@ -1,113 +1,149 @@
 <!DOCTYPE html>
 <html lang="en" data-portal="client">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Settings — Client Portal</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,680;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,-25..0&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/tokens.css">
-<link rel="stylesheet" href="../assets/css/components.css">
-<link rel="stylesheet" href="../assets/css/portal.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings — Client Portal</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,680;1,9..144,500&family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,-25..0&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/portal.css">
 </head>
+
 <body class="portal-body">
-<div class="grain" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
-<div class="portal-shell">
-  <!-- Sidebar -->
-  <aside class="sidebar">
-    <a href="dashboard.html" class="sidebar-logo">
-      <svg class="logo-mark" viewBox="0 0 32 32" fill="none">
-        <rect width="32" height="32" rx="9" fill="#14161C"/>
-        <path d="M8 8h6.5a5.5 5.5 0 0 1 0 11H8V8Zm3 3v5h3.2a2.5 2.5 0 0 0 0-5H11Z" fill="url(#lg-cli)"/>
-        <path d="M8 21h9" stroke="#34D399" stroke-width="2" stroke-linecap="round"/>
-        <defs><linearGradient id="lg-cli" x1="8" y1="8" x2="20.5" y2="19" gradientUnits="userSpaceOnUse"><stop stop-color="#34D399"/><stop offset="1" stop-color="#7C5CFF"/></linearGradient></defs>
-      </svg>
-      <div class="logo-text-wrap"><div class="logo-product">Edwin ATS</div><div class="logo-portal">Client Portal</div></div>
-    </a>
-    <nav class="sidebar-nav">
-      <div class="nav-section-label">Overview</div>
-      <a href="dashboard.html" class="nav-item"><span class="material-symbols-rounded">dashboard</span>Dashboard</a>
-      <a href="hiring-requests.html" class="nav-item"><span class="material-symbols-rounded">assignment</span>Hiring Requests<span class="nav-count">4</span></a>
-      <a href="candidates.html" class="nav-item"><span class="material-symbols-rounded">groups</span>Candidate Shortlists<span class="nav-count nav-count--new">5</span></a>
-      <div class="nav-section-label">Management</div>
-      <a href="interviews.html" class="nav-item"><span class="material-symbols-rounded">rate_review</span>Interview Feedback<span class="nav-count nav-count--urgent">2</span></a>
-      <a href="approvals.html" class="nav-item"><span class="material-symbols-rounded">approval</span>Approvals<span class="nav-count nav-count--urgent">3</span></a>
-      <a href="reports.html" class="nav-item"><span class="material-symbols-rounded">bar_chart</span>Reports & Analytics</a>
-      <div class="nav-section-label">Organization</div>
-      <a href="settings.html" class="nav-item is-active"><span class="material-symbols-rounded">settings</span>Settings</a>
-    </nav>
-    <div class="sidebar-footer">
-      <div class="sidebar-user" id="user-menu-btn">
-        <div class="avatar avatar--sm" data-session="avatar">AP</div>
-        <div class="sidebar-user-info"><div class="sidebar-user-name" data-session="name">Arjun Patel</div><div class="sidebar-user-role" data-session="title">Hiring Lead · Acme Corp</div></div>
-        <span class="material-symbols-rounded" style="color:var(--text-faint)">unfold_more</span>
-      </div>
-      <div class="user-menu" id="user-menu">
-        <a href="settings.html" class="user-menu-item"><span class="material-symbols-rounded">settings</span>Settings</a>
-        <hr class="user-menu-divider">
-        <button class="user-menu-item user-menu-item--danger" id="logout-btn"><span class="material-symbols-rounded">logout</span>Sign Out</button>
-      </div>
-    </div>
-  </aside>
-
-  <!-- Main -->
-  <div class="portal-main">
-    <header class="topbar">
-      <div style="display:flex;align-items:center;gap:var(--sp-3)">
-        <button class="sidebar-toggle-btn" id="sidebar-toggle"><span class="material-symbols-rounded">menu</span></button>
-        <div><div class="topbar-eyebrow">COMPANY & ACCOUNT SETTINGS</div><h1 class="topbar-title">Settings</h1></div>
-      </div>
-      <div class="topbar-actions">
-        <button class="icon-btn" id="theme-toggle"><span class="material-symbols-rounded">light_mode</span></button>
-      </div>
-    </header>
-
-    <div class="page-content">
-      <div class="card frame" style="margin-bottom:var(--sp-5)" data-reveal>
-        <h3 class="card-title" style="margin-bottom:var(--sp-4)">Personal Account Information</h3>
-        <div class="form-section">
-          <div class="form-row">
-            <div class="field"><label>First Name</label><input type="text" value="Arjun"></div>
-            <div class="field"><label>Last Name</label><input type="text" value="Patel"></div>
+  <div class="portal-shell">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <a href="dashboard.html" class="sidebar-logo">
+        <svg class="logo-mark" viewBox="0 0 32 32" fill="none">
+          <rect width="32" height="32" rx="9" fill="#14161C" />
+          <path d="M8 8h6.5a5.5 5.5 0 0 1 0 11H8V8Zm3 3v5h3.2a2.5 2.5 0 0 0 0-5H11Z" fill="url(#lg-cli)" />
+          <path d="M8 21h9" stroke="#34D399" stroke-width="2" stroke-linecap="round" />
+          <defs>
+            <linearGradient id="lg-cli" x1="8" y1="8" x2="20.5" y2="19" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#34D399" />
+              <stop offset="1" stop-color="#7C5CFF" />
+            </linearGradient>
+          </defs>
+        </svg>
+        <div class="logo-text-wrap">
+          <div class="logo-product">Pixel ATS</div>
+          <div class="logo-portal">Client Portal</div>
+        </div>
+      </a>
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">Overview</div>
+        <a href="dashboard.html" class="nav-item"><span class="material-symbols-rounded">dashboard</span>Dashboard</a>
+        <a href="hiring-requests.html" class="nav-item"><span class="material-symbols-rounded">assignment</span>Hiring
+          Requests<span class="nav-count">4</span></a>
+        <a href="candidates.html" class="nav-item"><span class="material-symbols-rounded">groups</span>Candidate
+          Shortlists<span class="nav-count nav-count--new">5</span></a>
+        <div class="nav-section-label">Management</div>
+        <a href="interviews.html" class="nav-item"><span class="material-symbols-rounded">rate_review</span>Interview
+          Feedback<span class="nav-count nav-count--urgent">2</span></a>
+        <a href="approvals.html" class="nav-item"><span class="material-symbols-rounded">approval</span>Approvals<span
+            class="nav-count nav-count--urgent">3</span></a>
+        <a href="reports.html" class="nav-item"><span class="material-symbols-rounded">bar_chart</span>Reports &
+          Analytics</a>
+        <div class="nav-section-label">Organization</div>
+        <a href="settings.html" class="nav-item is-active"><span
+            class="material-symbols-rounded">settings</span>Settings</a>
+      </nav>
+      <div class="sidebar-footer">
+        <div class="sidebar-user" id="user-menu-btn">
+          <div class="avatar avatar--sm" data-session="avatar">AP</div>
+          <div class="sidebar-user-info">
+            <div class="sidebar-user-name" data-session="name">Arjun Patel</div>
+            <div class="sidebar-user-role" data-session="title">Hiring Lead · Acme Corp</div>
           </div>
-          <div class="form-row">
-            <div class="field"><label>Work Email</label><input type="email" value="client@demo.com"></div>
-            <div class="field"><label>Job Title</label><input type="text" value="Head of Talent Acquisition"></div>
-          </div>
-          <button class="btn btn--primary btn--sm" style="width:fit-content;margin-top:var(--sp-2)" onclick="ATS.Toast.show('Account settings saved.', 'success')">Save Changes</button>
+          <span class="material-symbols-rounded" style="color:var(--text-faint)">unfold_more</span>
+        </div>
+        <div class="user-menu" id="user-menu">
+          <a href="settings.html" class="user-menu-item"><span
+              class="material-symbols-rounded">settings</span>Settings</a>
+          <hr class="user-menu-divider">
+          <button class="user-menu-item user-menu-item--danger" id="logout-btn"><span
+              class="material-symbols-rounded">logout</span>Sign Out</button>
         </div>
       </div>
+    </aside>
 
-      <div class="card frame" data-reveal>
-        <h3 class="card-title" style="margin-bottom:var(--sp-4)">Company Access Team (Acme Corp)</h3>
-        <div class="team-list">
-          <div class="team-row">
-            <div class="avatar avatar--sm" style="background:var(--emerald)">AP</div>
-            <div><div class="team-name">Arjun Patel</div><div class="team-email">arjun@acmecorp.io</div></div>
-            <span class="team-role">Hiring Lead</span>
+    <!-- Main -->
+    <div class="portal-main">
+      <header class="topbar">
+        <div style="display:flex;align-items:center;gap:var(--sp-3)">
+          <button class="sidebar-toggle-btn" id="sidebar-toggle"><span
+              class="material-symbols-rounded">menu</span></button>
+          <div>
+            <div class="topbar-eyebrow">COMPANY & ACCOUNT SETTINGS</div>
+            <h1 class="topbar-title">Settings</h1>
           </div>
-          <div class="team-row">
-            <div class="avatar avatar--sm">KR</div>
-            <div><div class="team-name">Kavitha Rao</div><div class="team-email">kavitha@acmecorp.io</div></div>
-            <span class="team-role">CHRO</span>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-btn" id="theme-toggle"><span class="material-symbols-rounded">light_mode</span></button>
+        </div>
+      </header>
+
+      <div class="page-content">
+        <div class="card frame" style="margin-bottom:var(--sp-5)" data-reveal>
+          <h3 class="card-title" style="margin-bottom:var(--sp-4)">Personal Account Information</h3>
+          <div class="form-section">
+            <div class="form-row">
+              <div class="field"><label>First Name</label><input type="text" value="Arjun"></div>
+              <div class="field"><label>Last Name</label><input type="text" value="Patel"></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label>Work Email</label><input type="email" value="client@demo.com"></div>
+              <div class="field"><label>Job Title</label><input type="text" value="Head of Talent Acquisition"></div>
+            </div>
+            <button class="btn btn--primary btn--sm" style="width:fit-content;margin-top:var(--sp-2)"
+              onclick="ATS.Toast.show('Account settings saved.', 'success')">Save Changes</button>
+          </div>
+        </div>
+
+        <div class="card frame" data-reveal>
+          <h3 class="card-title" style="margin-bottom:var(--sp-4)">Company Access Team (Acme Corp)</h3>
+          <div class="team-list">
+            <div class="team-row">
+              <div class="avatar avatar--sm" style="background:var(--emerald)">AP</div>
+              <div>
+                <div class="team-name">Arjun Patel</div>
+                <div class="team-email">arjun@acmecorp.io</div>
+              </div>
+              <span class="team-role">Hiring Lead</span>
+            </div>
+            <div class="team-row">
+              <div class="avatar avatar--sm">KR</div>
+              <div>
+                <div class="team-name">Kavitha Rao</div>
+                <div class="team-email">kavitha@acmecorp.io</div>
+              </div>
+              <span class="team-role">CHRO</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 
-<script src="../assets/js/auth.js"></script>
-<script src="../assets/js/shared.js"></script>
-<script src="../assets/js/data.js"></script>
-<script>
-(function() {
-  'use strict';
-  const data = ATS.Data.client;
-  const session = ATS.Portal.init({ role: 'client', notifs: data.notifications });
-})();
-</script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/shared.js"></script>
+  <script src="../assets/js/data.js"></script>
+  <script>
+    (function () {
+      'use strict';
+      const data = ATS.Data.client;
+      const session = ATS.Portal.init({ role: 'client', notifs: data.notifications });
+    })();
+  </script>
 </body>
+
 </html>

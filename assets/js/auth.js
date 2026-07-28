@@ -1,5 +1,5 @@
 /* ================================================================
-   AUTH.JS — Edwin ATS Platform
+   AUTH.JS — Pixel ATS Platform
    Session management · Route protection · Role-based redirect
    ================================================================ */
 
@@ -7,33 +7,33 @@
   'use strict';
 
   const SESSION_KEY = 'ats_session';
-  const LOGIN_URL   = 'auth/login.html';
+  const LOGIN_URL = 'auth/login.html';
 
   /* ── Demo accounts ── */
   const DEMO_ACCOUNTS = {
     'candidate@demo.com': {
       password: 'Candidate@123',
-      role:     'candidate',
-      name:     'Priya Menon',
-      company:  '',
-      title:    'UX Designer',
-      portal:   'candidate/dashboard.html',
+      role: 'candidate',
+      name: 'Edwin Dsouza',
+      company: '',
+      title: 'UI/UX Designer',
+      portal: 'candidate/dashboard.html',
     },
     'recruiter@demo.com': {
       password: 'Recruiter@123',
-      role:     'recruiter',
-      name:     'Riya Kapoor',
-      company:  'Edwin Design Studio',
-      title:    'Lead Recruiter',
-      portal:   'recruiter/dashboard.html',
+      role: 'recruiter',
+      name: 'Riya Kapoor',
+      company: 'Edwin Design Studio',
+      title: 'Lead Recruiter',
+      portal: 'recruiter/dashboard.html',
     },
     'client@demo.com': {
       password: 'Client@123',
-      role:     'client',
-      name:     'Arjun Patel',
-      company:  'Acme Corp',
-      title:    'Hiring Lead',
-      portal:   'client/dashboard.html',
+      role: 'client',
+      name: 'Arjun Patel',
+      company: 'Acme Corp',
+      title: 'Hiring Lead',
+      portal: 'client/dashboard.html',
     },
   };
 
@@ -41,7 +41,7 @@
   const PORTAL_HOME = {
     candidate: 'candidate/dashboard.html',
     recruiter: 'recruiter/dashboard.html',
-    client:    'client/dashboard.html',
+    client: 'client/dashboard.html',
   };
 
   /**
@@ -101,13 +101,13 @@
       if (acc.password !== password) return { ok: false, error: 'Incorrect password. Please try again.' };
 
       const session = {
-        role:      acc.role,
-        name:      acc.name,
-        company:   acc.company,
-        title:     acc.title,
-        email:     cleanEmail,
-        initials:  acc.name.split(' ').map(p => p[0]).slice(0, 2).join('').toUpperCase(),
-        loginAt:   Date.now(),
+        role: acc.role,
+        name: acc.name,
+        company: acc.company,
+        title: acc.title,
+        email: cleanEmail,
+        initials: acc.name.split(' ').map(p => p[0]).slice(0, 2).join('').toUpperCase(),
+        loginAt: Date.now(),
         expiresAt: Date.now() + 8 * 60 * 60 * 1000, // 8 hours
       };
       this.setSession(session);
@@ -160,17 +160,23 @@
     /* ── Apply session values to page DOM ── */
     applyToDOM(session) {
       if (!session) return;
-      const nameEls     = document.querySelectorAll('[data-session="name"]');
-      const roleEls     = document.querySelectorAll('[data-session="title"]');
-      const companyEls  = document.querySelectorAll('[data-session="company"]');
+      const nameEls = document.querySelectorAll('[data-session="name"]');
+      const roleEls = document.querySelectorAll('[data-session="title"]');
+      const companyEls = document.querySelectorAll('[data-session="company"]');
       const initialsEls = document.querySelectorAll('[data-session="initials"]');
-      const emailEls    = document.querySelectorAll('[data-session="email"]');
+      const emailEls = document.querySelectorAll('[data-session="email"]');
+      const subtitleEls = document.querySelectorAll('[data-session="subtitle"]');
 
-      nameEls    .forEach(el => el.textContent = session.name);
-      roleEls    .forEach(el => el.textContent = session.title + (session.company ? ' · ' + session.company : ''));
-      companyEls .forEach(el => el.textContent = session.company);
+      nameEls.forEach(el => el.textContent = session.name);
+      roleEls.forEach(el => el.textContent = session.title + (session.company ? ' · ' + session.company : ''));
+      companyEls.forEach(el => el.textContent = session.company);
       initialsEls.forEach(el => el.textContent = session.initials);
-      emailEls   .forEach(el => el.textContent = session.email);
+      emailEls.forEach(el => el.textContent = session.email);
+
+      const titleText = session.title || 'UI/UX Designer';
+      const displayTitle = titleText.toLowerCase().includes('senior') ? titleText : 'Senior ' + titleText;
+      const locText = session.location || 'Bengaluru, India';
+      subtitleEls.forEach(el => el.textContent = `${displayTitle} · ${locText}`);
 
       document.querySelectorAll('[data-session="avatar"]').forEach(el => {
         el.textContent = session.initials;

@@ -1,53 +1,60 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>404 — Page Not Found | Edwin ATS</title>
-<link rel="stylesheet" href="../assets/css/tokens.css">
-<link rel="stylesheet" href="../assets/css/components.css">
-<style>
-  body {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--sp-5);
-    text-align: center;
-  }
-  .error-card {
-    background: var(--surface);
-    border: 1px solid var(--border-strong);
-    border-radius: var(--radius);
-    padding: var(--sp-8) var(--sp-7);
-    max-width: 480px;
-    box-shadow: var(--shadow-deep);
-  }
-  .error-code {
-    font-family: var(--font-display);
-    font-size: 5rem;
-    font-weight: 600;
-    line-height: 1;
-    color: var(--accent);
-    margin-bottom: var(--sp-2);
-  }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | Pixel ATS</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <style>
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--sp-5);
+      text-align: center;
+    }
+
+    .error-card {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius);
+      padding: var(--sp-8) var(--sp-7);
+      max-width: 480px;
+      box-shadow: var(--shadow-deep);
+    }
+
+    .error-code {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      font-weight: 600;
+      line-height: 1;
+      color: var(--accent);
+      margin-bottom: var(--sp-2);
+    }
+  </style>
 </head>
+
 <body>
-<div class="grain" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
 
-<main class="error-card frame">
-  <div class="error-code">404</div>
-  <h1 style="font-size:1.5rem;margin-bottom:var(--sp-2)">Page not found</h1>
-  <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:var(--sp-6)">The page or view you are looking for does not exist or has been moved.</p>
-  <a href="../auth/login.html" class="btn btn--primary">Return to Sign In</a>
-</main>
+  <main class="error-card frame">
+    <div class="error-code">404</div>
+    <h1 style="font-size:1.5rem;margin-bottom:var(--sp-2)">Page not found</h1>
+    <p style="color:var(--text-muted);font-size:.9rem;margin-bottom:var(--sp-6)">The page or view you are looking for
+      does not exist or has been moved.</p>
+    <a href="../auth/login.html" class="btn btn--primary">Return to Sign In</a>
+  </main>
 
-<script src="../assets/js/auth.js"></script>
-<script src="../assets/js/shared.js"></script>
-<script>
-  ATS.FrameCorners.inject();
-  ATS.Theme.init();
-</script>
+  <script src="../assets/js/auth.js"></script>
+  <script src="../assets/js/shared.js"></script>
+  <script>
+    ATS.FrameCorners.inject();
+    ATS.Theme.init();
+  </script>
 </body>
+
 </html>
